@@ -61,11 +61,13 @@ public class Pedido {
                 }
                 double valorTotal = 45D;
                 pesoTotal -= 2000;
-                //valorpesoTotal / 100;
+                return valorTotal + (Math.ceil(pesoTotal / 100) * 1.5);
         }
-        
-        
         return 0D;
+    }
+    
+    public double getValorTotal() {
+        return getValorPedido() + getValorEntrega();
     }
     
     public int getPesoTotal() {
