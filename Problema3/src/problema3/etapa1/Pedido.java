@@ -16,6 +16,66 @@ public class Pedido {
         itensPedido = new ArrayList();
     }
 
+    public double getValorPedido() {
+        double valorTotal = 0;
+        for (ItemPedido item : itensPedido) {
+            valorTotal += item.getValorItem();
+        }
+        return valorTotal;
+    }
+    
+    public double getValorEntrega() {
+        int pesoTotal = this.getPesoTotal();
+        
+        switch (tipoEntrega) {
+            case RETIRADA_LOCAL:
+                return 0D;
+                
+            case ENCOMENDA_PAC:
+                if (pesoTotal <= 1000) {
+                    return 10D;
+                }
+                if (pesoTotal <= 2000) {
+                    return 15D;
+                }
+                if (pesoTotal <= 3000) {
+                    return 20D;
+                }
+                if (pesoTotal <= 5000) {
+                    return 30D;
+                }
+                throw new TipoEntregaInvalido();
+                
+            case SEDEX:
+                if (pesoTotal <= 500) {
+                    return 12.50D;
+                }
+                if (pesoTotal <= 750) {
+                    return 20D;
+                }
+                if (pesoTotal <= 1200) {
+                    return 30D;
+                }
+                if (pesoTotal <= 2000) {
+                    return 45D;
+                }
+                double valorTotal = 45D;
+                pesoTotal -= 2000;
+                //valorpesoTotal / 100;
+        }
+        
+        
+        return 0D;
+    }
+    
+    public int getPesoTotal() {
+        int pesoTotal = 0;
+        for (ItemPedido item: itensPedido) {
+            pesoTotal += item.getPesoItem();
+        }
+        return pesoTotal;
+    }
+
     public int getNumero() {
         return numero;
     }
@@ -58,14 +118,6 @@ public class Pedido {
         } else {
             throw new IllegalArgumentException("Endereço inválido");
         }
-    }
-
-    public double getValorPedido() {
-        double valorTotal = 0;
-        for (ItemPedido item : itensPedido) {
-            valorTotal += item.getProduto().getValor();
-        }
-        return valorTotal;
     }
 
     public TipoEntrega getTipoEntrega() {

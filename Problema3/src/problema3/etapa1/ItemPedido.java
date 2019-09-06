@@ -33,6 +33,10 @@ public class ItemPedido {
     }
     
     protected double getValorItem(){
-        return produto.getValor();
+        return produto.getValor() * this.getQuantidade();
+    }
+    
+    protected double getPesoItem(){
+        return produto.getPeso() * this.getQuantidade();
     }
 }
