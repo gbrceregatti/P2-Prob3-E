@@ -17,7 +17,11 @@ public class Produto {
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        if(!descricao.isEmpty())
+            this.descricao = descricao;
+        else
+            throw new IllegalArgumentException("Descrição inválida");
+        
     }
 
     public double getValor() {
@@ -25,7 +29,10 @@ public class Produto {
     }
 
     public void setValor(double valor) {
-        this.valor = valor;
+        if(valor > 0)
+            this.valor = valor;
+        else
+            throw new IllegalArgumentException("Valor inválido");
     }
 
     public int getPeso() {
@@ -33,7 +40,10 @@ public class Produto {
     }
 
     public void setPeso(int peso) {
-        this.peso = peso;
+        if(peso > 0)
+            this.peso = peso;
+        else
+            throw new IllegalArgumentException("Peso inválido");
     }
     
 }

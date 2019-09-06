@@ -15,7 +15,10 @@ public class ItemPedido {
     }
 
     protected void setProduto(Produto produto) {
-        this.produto = produto;
+        if(produto != null)
+            this.produto = produto;
+        else
+            throw new IllegalArgumentException("Produto inválido");
     }
 
     protected int getQuantidade() {
@@ -23,7 +26,10 @@ public class ItemPedido {
     }
 
     protected void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+        if(quantidade > 0)
+            this.quantidade = quantidade;
+        else
+            throw new IllegalArgumentException("Quantidade inválida");
     }
     
     protected double getValorItem(){
