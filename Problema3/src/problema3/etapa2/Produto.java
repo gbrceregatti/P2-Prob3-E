@@ -1,7 +1,5 @@
 package problema3.etapa2;
 
-import problema3.etapa1.*;
-
 public class Produto {
     
     private String descricao;

@@ -1,7 +1,6 @@
 package problema3.etapa2;
 import java.util.ArrayList;
 import java.util.Date;
-import problema3.etapa1.Produto;
 
 public class Pedido {
     
@@ -9,7 +8,7 @@ public class Pedido {
     private String nomeCliente;
     private Date data;
     private String endereco;
-    private ArrayList<ItemPedido> itensPedido;
+    private final ArrayList<ItemPedido> itensPedido;
     private IEntrega entrega;
 
     public Pedido() {
@@ -37,7 +36,6 @@ public class Pedido {
     }
     
     public double getValorEntrega() {
-        int pesoTotal = this.getPesoTotal();
         return entrega.calcularValorEntrega(this);
     }
     

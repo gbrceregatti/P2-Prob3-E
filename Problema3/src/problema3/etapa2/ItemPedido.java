@@ -1,7 +1,5 @@
 package problema3.etapa2;
 
-import problema3.etapa1.*;
-
 public class ItemPedido {
  
     private Produto produto;
