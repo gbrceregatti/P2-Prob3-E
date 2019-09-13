@@ -1,4 +1,4 @@
-package problema3.etapa1;
+package problema3.etapa2;
 
 public class TipoEntregaInvalido extends IllegalArgumentException {
     

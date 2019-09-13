@@ -1,0 +1,26 @@
+
+
+Padrões de Projeto: Strategy e Singleton:
+
+
+
+
+Strategy:
+
+	Interface: IEntrega
+	Classes: EncomendaSedex, EncomendaPac, EncomendaEntregaLocal, EncomendaMotoboy
+	Classe que utiliza: Pedido
+
+- Foi criado uma interface para garantir o contrato garantindo que as classes de entrega implementem o método  "calcularValorEntrega()".
+- Separamos os tipos de entrega em classes separadas que implementam o método da interface IEntrega.
+- Adicionado uma propriedade privada do tipo IEntrega na classe Pedido que recebe em seu construtor um tipo de encomenda.
+- Agora o método "getValorEntrega()" não possui mais o switch case sem se procupar como é calculado o valor da entrega.
+
+
+Singleton:
+
+	Classes: EncomendaSedex, EncomendaPac, EncomendaEntregaLocal, EncomendaMotoboy
+
+- Foi criado uma propriedade relexiva da própria classe.
+- Adicionado um método "getInstance()" para retornar a instancia da classe.
+- Um construtor privado para garantir que a classe não será instanciada a menos que seja chamado o "getInstance()".
